@@ -3,8 +3,13 @@ package com.androidhans.lab7
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,7 +30,8 @@ class MainActivity : AppCompatActivity() {
              item.add(Item(photo, name, price))            //新增水果資訊
              }
         array.recycle()                                    //釋放圖檔資源
-        //建立ArrayAdapter物件_下拉式選單，並傳入字串與simple_list_item_1.xml
+
+                //建立ArrayAdapter物件_下拉式選單，並傳入字串與simple_list_item_1.xml
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, count)
 
         //設定橫向顯示列數
@@ -35,6 +41,22 @@ class MainActivity : AppCompatActivity() {
 
         //建立MyAdapter物件_縱向清單，並傳入adapter_horizontal作為畫面
         listView.adapter = MyAdapter(this, item, R.layout.adapter_horizontal)
+
+/*
+        val  linerLayoutManager = LinearLayoutManager(this)
+
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+
+        recyclerView.layoutManager = linearLayoutManager
+
+        recyclerView.adapter = MyAdapter(item, R.layout.adapter_horizontal)
+
+        val gridLayoutManager = GridLayoutManager(this, 3)
+
+        gridLayoutManager.orientation = GridLayoutManager.VERTICAL
+
+        recyclerView.layoutManager = gridLayoutManager
+        */
 
 
         }
