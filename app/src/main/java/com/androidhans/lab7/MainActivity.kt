@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
              }
         array.recycle()                                    //釋放圖檔資源
         //建立ArrayAdapter物件_下拉式選單，並傳入字串與simple_list_item_1.xml
-        spinner.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, count)
+        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, count)
 
         //設定橫向顯示列數
         gridView.numColumns = 3
